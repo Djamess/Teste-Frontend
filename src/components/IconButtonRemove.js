@@ -7,8 +7,8 @@ const IconButtonRemove = ({ cardId, className, text, icon }) => {
   const onClickExpand = () => setIsActive(!isActive)
 
   function remove() {
-    let pessoa = document.getElementById(`card${cardId}`);
-    pessoa.style.display = 'none';
+    let card = document.getElementById(`card${cardId}`);
+    card.style.display = "none";
   }
 
   return (
@@ -18,7 +18,7 @@ const IconButtonRemove = ({ cardId, className, text, icon }) => {
         <i className={icon} />
         <nav ref={dropDownRef} className={`more-menu ${isActive ? "active" : "inactive"}`}>
           <ul className="list-more-btn">
-            <li className="item-list-more" onClick={remove}>Excluir</li>
+            <li className="item-list-more" onClick={remove}>Excluir item</li>
           </ul>
         </nav>
       </button>

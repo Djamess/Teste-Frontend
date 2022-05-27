@@ -10,8 +10,8 @@ const SelectComponent = ({ name, id, options, className, onClick }) => {
   return (
     <div className={className}>
       <select onChange={(e) => onClick(options.find(item => item.value === e.target.value).text)} className="form-select form-select-md" name={name} id={id}>
-        {options.map(({ value, text }, index) => (
-          <option onClick={() => onClick({ value, text })} key={index} value={value}> {text} </option>
+        {options.map(({ value, text, titulo }, index) => (
+          <option onClick={() => onClick({ value, text, titulo })} key={index} value={value}> {titulo} </option>
         ))}
       </select>
     </div>

@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import DADOS from "../data/data.json";
+import datajson from "../data/data.json";
 import Card from "../components/Card";
 import Container from "../layouts/Container";
 import Column from "../layouts/Column";
@@ -9,26 +9,25 @@ import Board from "../components/Board";
 import CardBoard from "../components/CardBoard";
 import SelectComponent from "../components/SelectComponent";
 import IconButton from "../components/IconButton";
+import managementjson from "../data/management.json";
 
 /**
  * Função responsável por gerar um componente Card
  * através dos dados de entrada.
  */
 
-
 const RenderCard = ({ data, tipo }) => {
   return data && data.length > 0 ? data.filter(item => item.type === tipo || tipo === "TIPO").map(
-    ({ id, title, description, type, event, date, file, common }, index) => {
+    (data, index) => {
       return (
         <Card
-          id={id}
-          title={title}
-          description={description}
-          common={common}
-          type={type}
-          srcImg={file.url}
-          event={event}
-          date={date}
+          id={data.id}
+          title={data.title}
+          type={data.type}
+          description={data.description}
+          date={data.info.date}
+          invited_people={data.invited_people}
+          srcImg={data.file.url}
           key={index}
         />
       );
@@ -60,10 +59,10 @@ const Dashboard = (_) => {
                     name="marketing"
                     id="market"
                     options={[
-                      { value: "1", text: "TIPO" },
-                      { value: "2", text: "COMUNICADO" },
-                      { value: "3", text: "EVENTO" },
-                      { value: "4", text: "PUBLICAÇÃO" },
+                      { value: "1", text: "TIPO", titulo:"TIPO" },
+                      { value: "2", text: "release", titulo:"RELEASE" },
+                      { value: "3", text: "event", titulo:"EVENT" },
+                      { value: "4", text: "publication", titulo:"PUBLICATION" },
                     ]}
                   />
                   <IconButton
@@ -73,7 +72,7 @@ const Dashboard = (_) => {
                   />
                 </Column>
               </Row>
-              <RenderCard data={DADOS.data} tipo={tipo} />
+              <RenderCard data={datajson.data} tipo={tipo} />
             </Column>
             <Column classStyle="col-12 col-md-12 col-lg-4">
               <div className="side-bar">
@@ -85,9 +84,7 @@ const Dashboard = (_) => {
                   diferentes.
                 </CardInfo>
                 <Board title="Quadros de Gestão à vista">
-                  <CardBoard />
-                  <CardBoard />
-                  <CardBoard />
+                  <CardBoard data={managementjson.data[0]}/>
                 </Board>
               </div>
             </Column>

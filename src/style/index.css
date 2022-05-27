@@ -18,12 +18,15 @@ select {
   color: #707070 !important;
   font-weight: lighter;
 }
-.mb-2{
+
+.mb-2 {
   padding-top: 50px !important;
 }
-.side-bar{
+
+.side-bar {
   padding-top: 50px !important;
 }
+
 .page-events {
   background-color: #f2f3f5 !important;
 }
@@ -35,6 +38,7 @@ select {
 .navbar {
   box-shadow: 0px 4px 5px #c5c5c5;
 }
+
 .div-card {
   position: relative;
 }
@@ -88,7 +92,16 @@ select {
 }
 
 .img-demo {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5px;
+}
+
+.img-management {
+  flex: 1 1 auto;
+  margin: 5px;
+  width: 20%;
 }
 
 .btn-demo {
@@ -249,20 +262,29 @@ select {
   display: grid;
   grid-template-columns: auto auto auto;
   background-color: rgb(235, 235, 235);
-  ;
   padding: 5px;
   border-radius: 10px;
+  z-index: 100;
 }
 
 .list-people {
   list-style: none;
-  margin: 0 !important;
+  display: block;
+  margin: 10px, 10px, 10px, 10px !important;
   padding: 0 !important;
   text-align: left;
+  border-radius: 15px !important;
 }
 
 .profile-name {
   color: black;
+}
+
+.list-people img{
+  width: 30px;
+  border: 1px solid #70707079;
+  box-shadow: 0px 2px 2px #00000027;
+  border-radius: 15px !important;
 }
 
 /* Fim Estilo componentes */
